@@ -60,7 +60,7 @@ Click Get New Access Token.
 ```
 curl --location 'https://ddn00000avb69mab-dev-ed.develop.my.salesforce.com/services/data/v58.0/tooling/sobjects/namedcredential' \
 --header 'Content-Type: application/json' \
---header 'Authorization: Bearer 00DDn00000Avb.....DY' \
+--header 'Authorization: Bearer ....7X03waY.a09ylN8W' \
 --header 'Cookie: BrowserId=az1WtkFdEe6Kvem2CFeTwA; CookieConsentPolicy=0:1; LSKey-c$CookieConsentPolicy=0:1' \
 --data '{
     "attributes": {
