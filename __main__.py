@@ -1,6 +1,7 @@
 import argparse
 import auth
-
+import named_credential
+import lightning_component_bundle
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(
@@ -9,7 +10,9 @@ if __name__ == "__main__":
     parser.add_argument('-sfdc-url', '--salesforce-url', default="https://test.salesforce.com", action='store', dest='salesforce_url')      # option that takes a value
     parser.add_argument('-sfdc-user', '--sfdc-username', default="jbcorcoran85@gmail.com", action='store', dest='sfdc_username')      # option that takes a value
     parser.add_argument('-key-file', '--key-file', default="jwt/server.key", action='store', dest='keyfile_path')      # option that takes a value
+    parser.add_argument('-t', '--type', dest='type', default='create', action='store', help='create, update, delete')
 
     env = parser.parse_args()
-    auth.simple_salesforce_auth(env.sfdc_username, env.connected_app_id, env.salesforce_url, env.keyfile_path)
-    auth.requests_auth()
+    auth=auth.simple_salesforce_auth(env.sfdc_username, env.connected_app_id, env.salesforce_url, env.keyfile_path)
+    named_credential.run(auth)
+    lightning_component_bundle.run(auth)

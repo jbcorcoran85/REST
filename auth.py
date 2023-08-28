@@ -1,17 +1,9 @@
 from simple_salesforce import Salesforce
 
-
 def simple_salesforce_auth(sfdc_username, connected_app_id, salesforce_url, privatekey_path):
     sf = Salesforce(username=sfdc_username, consumer_key=connected_app_id, privatekey_file=privatekey_path, instance=salesforce_url)
     print(sf.headers['Authorization'])
-
-
-def requests_auth():
-    print('requests auth')
-    """
-    curl https://<instance>.salesforce.com/services/oauth2/token -d "grant_type=password" -d "client_id=myclientid" -d "client_secret=myclientsecret" -d "mylogin@salesforce.com" -d "password=mypassword123456"
-    """
-
+    return(sf)
 
 # if __name__ == "__main__":
 #     parser = argparse.ArgumentParser(
